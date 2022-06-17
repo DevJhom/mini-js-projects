@@ -1,0 +1,90 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(135deg,#ea52f8,#0066ff);
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 480px;
+    width: 380px;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.52);
+}
+
+p {
+    text-align: center;
+    width: 380px;
+    color: white;
+    font-size: 19px;
+}
+
+.boxes {
+    background-color: #000;
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    position: relative;
+}
+
+.boxes small {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #fff;
+    margin: 5px;
+}
+
+
+
+
+/* THIS WILL BE INSERTED MANUALLY USING JAVASCRIPT */
+
+/* #box1 {
+    background-image: linear-gradient(135deg,#ea52f8,#0066ff);
+}
+
+#box2 {
+    background-image: linear-gradient(135deg,#799f0c,#ffe000);
+}
+
+#box3 {
+    background-image: linear-gradient(135deg,#191165,#43c6ac);
+}
+
+#box4 {
+    background-image: linear-gradient(135deg,#ff886a,#fcf6cf);
+}
+
+#box5 {
+    background-image: linear-gradient(135deg,#2bc0e4,#eaecc6);
+}
+
+#box6 {
+    background-image: linear-gradient(135deg,#8c366c,#6e64e7);
+}
+
+#box7 {
+    background-image: linear-gradient(135deg,#0f3443,#34e89e);
+}
+
+#box8 {
+    background-image: linear-gradient(135deg,#0f0c29,#302b63);
+}
+
+#box9 {
+    background-image: linear-gradient(135deg,#603813,#b29f94);
+} */
