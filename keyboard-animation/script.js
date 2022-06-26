@@ -5,6 +5,7 @@ const thirdRow = document.querySelector('.third-row');
 const spaceBar = document.querySelector('.space-bar');
 
 const keys = ["q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m","space-bar"];
+const colors = ['#43c6ac', 'green', 'yellow',]
 
 createKeyboard();
 
@@ -40,12 +41,20 @@ window.addEventListener('keydown', (e) => {
     })
 })
 
-//set CSS class to 'typed-in'
+//set border and color style 
 function animateKeyboard(key){
     const enteredKeyEl = document.getElementById(key)
-    enteredKeyEl.classList.add('typed-in')
+    const color = getRandomColor()
+    enteredKeyEl.style.border = `3px solid ${color}`
+    enteredKeyEl.style.color = `green`
 
     setTimeout(() => {
-        enteredKeyEl.classList.remove('typed-in')
+        enteredKeyEl.style.border = ''
+        enteredKeyEl.style.color = ''
+
     }, 1000)
+}
+
+function getRandomColor() {
+    return colors[Math.floor(Math.random() * colors.length)]
 }
