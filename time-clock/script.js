@@ -1,4 +1,5 @@
 const html = document.querySelector("html");
+const body = document.querySelector("body");
 
 const hourEl = document.querySelector(".hour");
 const minuteEl = document.querySelector(".minute");
@@ -32,6 +33,7 @@ const months = [
 ];
 
 setTime();
+changeBgColor();
 
 function setTime() {
   const time = new Date();
@@ -47,12 +49,42 @@ function setTime() {
   minuteEl.style.transform = `translate(-50%, -100%) rotate(${scale(minute, 0, 59, 0, 360)}deg)`
   secondEl.style.transform = `translate(-50%, -100%) rotate(${scale(second, 0, 59, 0, 360)}deg)`
 
-  //Display Time 
+  //Display Time & Date
   const hour_24 =  time.getHours()
-  timeEl.innerHTML = `${hour_24}:${minute < 10 ? `0${minute}`: minute} ${hour_24 < 12 ? 'AM':'PM'}`
-
-  //Display Date
+  timeEl.innerHTML = `${hour_12}:${minute < 10 ? `0${minute}`: minute} ${hour_24 < 12 ? 'AM':'PM'}`
   dateEl.innerHTML = `${days[day]}, ${months[month]} ${date}`
+
+  //check every hour if background need changes
+  if(minute === 0 && second === 0){
+    changeBgColor()
+  }
+}
+
+function changeBgColor(){
+  const time = new Date();
+  const hour =  time.getHours()
+
+  if(hour === 6){
+    //DAWN
+    body.style.backgroundImage = `
+      radial-gradient(at 80% 4%, #8F6993, transparent 50%),
+      radial-gradient(at 45% 25%, #FEA389, transparent 50%),
+      radial-gradient(at 25% 60%, #FFF09B, transparent 50%)`
+  }else if(hour > 6 && hour < 18){
+    //DAYTIME
+    body.style.backgroundImage = `
+      linear-gradient(#fff,#FFE716)`
+  }else if(hour === 18){
+    //DUSK
+    body.style.backgroundImage = `
+      radial-gradient(at 70% 45%, #ef8e44, transparent 50%),
+      radial-gradient(at 45% 25%, #FDA811, transparent 50%),
+      radial-gradient(at 25% 60%, #FFF09B, transparent 50%)`
+  }else{
+    //NIGHTTIME
+    body.style.backgroundImage = `
+      linear-gradient(#01162e, #01426d)`
+  }
 }
 
 //StackOverflow - Map a range of numbers to another range of numbers
