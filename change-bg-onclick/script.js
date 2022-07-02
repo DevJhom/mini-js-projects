@@ -49,12 +49,10 @@ const gradients = [
   },
 ];
 
-createBoxes();
-
-function createBoxes() {
+const createBoxes = () => {
   const numberOfBoxes = gradients.length;
 
-  for (let i = 0; i <= numberOfBoxes - 1; i++) {
+  for (let i = 0; i < numberOfBoxes; i++) {
     const box = document.createElement("div");
     box.classList.add("boxes");
     box.id = `box${i}`;
@@ -67,7 +65,7 @@ function createBoxes() {
   }
 }
 
-function addGradients(boxEl, id) {
+const addGradients = (boxEl, id) => {
   boxEl.style = `
   background-image: linear-gradient(
     135deg, 
@@ -76,7 +74,7 @@ function addGradients(boxEl, id) {
     )`;
 }
 
-function changeBackgroundOnClick(boxEl, id) {
+const changeBackgroundOnClick = (boxEl, id) => {
   boxEl.addEventListener("click", () => {
     body.style = `
     background-image: linear-gradient(
@@ -86,3 +84,5 @@ function changeBackgroundOnClick(boxEl, id) {
         )`;
   });
 }
+
+createBoxes();
