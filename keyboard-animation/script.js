@@ -7,9 +7,7 @@ const spaceBar = document.querySelector('.space-bar');
 const keys = ["q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m","space-bar"];
 const colors = ['#43c6ac', 'green', 'yellow',]
 
-createKeyboard();
-
-function createKeyboard() {
+const createKeyboard = () => {
     keys.forEach((key, idx) => {
 
         const keyEl = document.createElement('p');
@@ -42,7 +40,7 @@ window.addEventListener('keydown', (e) => {
 })
 
 //set border and color style 
-function animateKeyboard(key){
+const animateKeyboard = (key) => {
     const enteredKeyEl = document.getElementById(key)
     const color = getRandomColor()
     enteredKeyEl.style.border = `3px solid ${color}`
@@ -58,3 +56,5 @@ function animateKeyboard(key){
 function getRandomColor() {
     return colors[Math.floor(Math.random() * colors.length)]
 }
+
+createKeyboard();
