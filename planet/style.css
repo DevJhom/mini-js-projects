@@ -18,8 +18,10 @@ body{
 
 img#planet {
     position: absolute;
-    top: 15%;
+    top: 5%;
     left: 35%;
+    width: 47vw;
+    height: 47vw;
     z-index: -1;
 }
 
@@ -88,4 +90,41 @@ a.more {
 
 a:hover {
     color: #F5B329;
+}
+
+@media (max-width: 912px) {
+
+    img#planet {
+        top: 18%;
+        width: 500px;
+        height: 500px;
+    }
+
+    .content {
+        width: 80%;
+        margin-top: 20%;
+    }
+
+    h1.title {
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+
+    p.text {
+        margin-top: 20%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    img#planet {
+        top: 18%;
+        width: 260px;
+        height: 260px;
+    }
+
+    h1.title {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
 }
