@@ -5,7 +5,7 @@ const thirdRow = document.querySelector('.third-row');
 const spaceBar = document.querySelector('.space-bar');
 
 const keys = ["q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m","space-bar"];
-const colors = ['#43c6ac', 'green', 'yellow',]
+const colors = ['#43c6ac', 'green', 'yellow', 'red', 'blue']
 
 const createKeyboard = () => {
     keys.forEach((key, idx) => {
@@ -43,13 +43,17 @@ window.addEventListener('keydown', (e) => {
 const animateKeyboard = (key) => {
     const enteredKeyEl = document.getElementById(key)
     const color = getRandomColor()
-    enteredKeyEl.style.border = `3px solid ${color}`
-    enteredKeyEl.style.color = `green`
+    let color2 = getRandomColor()
+
+    while(color === color2){
+        color2 = getRandomColor()
+    }
+    enteredKeyEl.style.background =  `linear-gradient(45deg, ${color}, ${color2})`;
+    enteredKeyEl.style.color = '#fff'
 
     setTimeout(() => {
-        enteredKeyEl.style.border = ''
+        enteredKeyEl.style.background = ''
         enteredKeyEl.style.color = ''
-
     }, 1000)
 }
 
