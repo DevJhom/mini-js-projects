@@ -2,24 +2,15 @@ const percentage = document.getElementById("percentage");
 const line = document.getElementById("line");
 const radios = document.getElementsByName("duration");
 
-let duration = 3; //default = 3
+let duration = 3; //default
+let interval;
 startLoading();
 
-function startAnimation(){
-  line.style.animation = `timer ${duration}s linear`;
-}
-
-function restartAnimation(){
-    line.style.animation = 'none';
-    line.offsetWidth;
-    line.style.animation = `timer ${duration}s linear`;
-}
-
 function startLoading() {
-  startAnimation();
+  startLineAnimation();
 
   let percentValue = 0;
-  let interval = setInterval(increasePercentage, duration*10);
+  interval = setInterval(increasePercentage, duration*10);
 
   function increasePercentage() {
     percentValue++;
@@ -32,10 +23,21 @@ function startLoading() {
   }
 }
 
+function startLineAnimation(){
+  line.style.animation = `timer ${duration}s linear`;
+}
+
+function restartLineAnimation(){
+    line.style.animation = 'none';
+    line.offsetWidth;
+    line.style.animation = `timer ${duration}s linear`;
+}
+
 radios.forEach((radio) => {
   radio.addEventListener("click", () => {
     duration = document.querySelector("[name=duration]:checked").value;
+    clearInterval(interval);
     startLoading();
-    restartAnimation();
+    restartLineAnimation();
   });
 });
