@@ -1,5 +1,8 @@
 const body = document.body;
 const container = document.querySelector(".container");
+const gradientName = document.querySelector(".gradient-name");
+const color1 = document.querySelector(".color1");
+const color2 = document.querySelector(".color2");
 
 const gradients = [
   {
@@ -82,6 +85,11 @@ const changeBackgroundOnClick = (boxEl, id) => {
         ${gradients[id].color1}, 
         ${gradients[id].color2}
         )`;
+
+    //update the gradient data 
+    gradientName.innerHTML = gradients[id].name;
+    color1.innerHTML = gradients[id].color1;
+    color2.innerHTML = gradients[id].color2;
   });
 }
 
