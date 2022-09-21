@@ -89,6 +89,7 @@ body {
   position: relative;
   width: 220px;
   height: 220px;
+  top: 25px;
   border-radius: 50%;
   box-shadow: 5px 5px 10px #101010,
   -5px -5px 10px #363636;;
