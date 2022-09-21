@@ -1,7 +1,6 @@
-//TO FIX
-// 1. right now, the DOM still gets updated everytime the user types
-// 2. add "delete" keys to the dorm
-// 3. function for "Shift"
+//TO ADD
+// 1. add "delete" keys to the dorm
+// 2. function for "Shift"
 
 const texts = document.querySelector(".texts");
 const container = document.querySelector(".container");
@@ -23,8 +22,8 @@ const enterKey = ["Enter"];
 
 //Helper variables
 const colors = ["#43c6ac", "green", "yellow", "red", "blue"];
+let capsLockStatus = false;
 let enteredText = [];
-
 
 //Create keyboards in the DOM, one row at a time
 const createKeyboard = (keys, row) => {
@@ -56,20 +55,24 @@ const updateKeyboard = (cases) => {
   createKeyboard(enterKey, secondRow);
   createKeyboard(spaceBarKey, spaceBar);
 };
-
 //initialize
 updateKeyboard("lower-case");
-
 
 //getting user input
 window.addEventListener("keydown", (e) => {
   const enteredKey = e.key;
 
-  //listen for CapsLock
-  if (e.getModifierState("CapsLock")) {
-    updateKeyboard("upper-case");
+  //if user switches their "CapsLock" status, update the DOM
+  if (capsLockStatus === e.getModifierState("CapsLock")) {
+    //no update
   } else {
-    updateKeyboard("lower-case");
+    //update
+    if(e.getModifierState("CapsLock"))
+      updateKeyboard("upper-case");
+    else
+      updateKeyboard("lower-case");
+
+    capsLockStatus = !capsLockStatus;
   }
 
   if (
