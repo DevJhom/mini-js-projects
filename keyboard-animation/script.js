@@ -1,6 +1,5 @@
 //TO ADD
-// 1. add "delete" keys to the dorm
-// 2. function for "Shift"
+//function for "Shift"
 
 const texts = document.querySelector(".texts");
 const container = document.querySelector(".container");
@@ -10,15 +9,13 @@ const thirdRow = document.querySelector(".third-row");
 const spaceBar = document.querySelector(".space-bar");
 
 //Alphabets and keys
-const firstRowKeys = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
-const secondRowKeys = ["a", "s", "d", "f", "g", "h", "j", "k", "l"];
+const firstRowKeys = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "⌫"];
+const secondRowKeys = ["a", "s", "d", "f", "g", "h", "j", "k", "l", "Enter"];
 const thirdRowKeys = ["z", "x", "c", "v", "b", "n", "m"];
-const firstRowKeys_Capital = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
-const secondRowKeys_Capital = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
+const firstRowKeys_Capital = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "⌫"];
+const secondRowKeys_Capital = ["A", "S", "D", "F", "G", "H", "J", "K", "L", "Enter"];
 const thirdRowKeys_Capital = ["Z", "X", "C", "V", "B", "N", "M"];
-
 const spaceBarKey = [" "];
-const enterKey = ["Enter"];
 
 //Helper variables
 const colors = ["#43c6ac", "green", "yellow", "red", "blue"];
@@ -52,11 +49,9 @@ const updateKeyboard = (cases) => {
     createKeyboard(thirdRowKeys_Capital, thirdRow);
   }
 
-  createKeyboard(enterKey, secondRow);
   createKeyboard(spaceBarKey, spaceBar);
 };
-//initialize
-updateKeyboard("lower-case");
+updateKeyboard("lower-case"); //initialize
 
 //getting user input
 window.addEventListener("keydown", (e) => {
@@ -82,10 +77,11 @@ window.addEventListener("keydown", (e) => {
     firstRowKeys_Capital.includes(enteredKey) ||
     secondRowKeys_Capital.includes(enteredKey) ||
     thirdRowKeys_Capital.includes(enteredKey) ||
-    enteredKey === " " ||
-    enteredKey === "Enter"
-  ) {
+    enteredKey === " "
+  ){
     animateKeyboard(enteredKey);
+  } else if(enteredKey === "Backspace"){
+    animateKeyboard("⌫");
   }
 
   updateTexts(enteredKey);
