@@ -22,12 +22,18 @@ The projects here are created in order for me to study and get familiar with reg
 
 ![preview](./assets/time-clock.png)
 
-4. Mouse Tracker
+<br>
+4. Loading Line
+
+   Live demo available at https://devjhom.github.io/loading-line/
+
+<br>
+5. Mouse Tracker
 
    Live demo available at https://devjhom.github.io/mouse-tracker/
    
-   
-5. And many more yet to come...
+<br>
+6. And many more yet to come...
 
 
 <br>
@@ -44,5 +50,5 @@ Clone this repository to your local machine.
 Most of the projects are inspired by Brad Traversy and Florin Pop's Udemy Course: "50 Projects In 50 Days".
 https://www.udemy.com/course/50-projects-50-days/
 
-Please feel free to share or use the sources in your own personal projects.
+Please feel free to share or use the source codes in your own personal projects.
 
